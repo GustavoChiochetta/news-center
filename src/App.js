@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { useRoutes,  } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './pages/Home';
+import Edit from './pages/Edit';
+import Show from './pages/Show';
+import New from './pages/New';
+
+const App = () => {
+  return(
+    <AppRoutes/>
+  )
+}
+
+const AppRoutes = () => {
+  let routes = [
+    {path: '/', element: <Home/>},
+    {path: '/show/:id', element: <Show/>},
+    {path: '/edit/:id', element: <Edit/>},
+    {path: '/new', element: <New/>}
+  ]
+  const appRoutes = useRoutes(routes);
+
+  return appRoutes;
 }
 
 export default App;
