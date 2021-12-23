@@ -26,6 +26,7 @@ const validation = yup.object({
     .required('Campo obrigatorio'),
   texto: yup.string()
     .min(1000, 'Texto muito curto!')
+    .max(1500, 'Texto muito comprido!')
     .required('Campo obrigatorio'),
   nome: yup.string()
     .min(4, 'Nome do autor muito curto!')
